@@ -4,9 +4,25 @@ import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 
 class App extends Component {
+
   render () {
+    const ulStyle = {
+      listStyle: 'none',
+      margin: '0',
+      padding: '0',
+      width: '100%',
+      textAlign: 'center'
+    }
     return (
       <div className="App">
+        <header>
+                    <nav>
+                        <ul style={ulStyle}>
+                            <li><a href="/"><Courses>Courses</Courses></a></li>
+                            <li><a href="/users"><Users>Users</Users></a></li>
+                        </ul>
+                    </nav>
+                </header>
         <ol style={{textAlign: 'left'}}>
           <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>
           <li>Add a simple navigation with two links => One leading to "Users", one leading to "Courses"</li>
