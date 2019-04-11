@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
+import Course from './containers/Course/Course';
 
 class App extends Component {
-
   render () {
     const ulStyle = {
       listStyle: 'none',
@@ -30,6 +30,7 @@ class App extends Component {
             
           <Route path="/courses" component={Courses} />
           <Route path="/users" component={Users} />
+          <Route path="/:courseId" component={Course}></Route>
 
           <ol style={{textAlign: 'left'}}>
             <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>
