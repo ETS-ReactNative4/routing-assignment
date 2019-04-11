@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -20,13 +20,15 @@ class App extends Component {
           <header>
               <nav>
                   <ul style={ulStyle}>
-                      <li><a href="/">Courses</a></li>
-                      <li><a href="/users">Users</a></li>
+                      <li><Link to="/">HOME</Link></li>
+                      <li><Link to="/courses">Courses</Link></li>
+                      <li><Link to={{ //advanced properties as an example
+                       pathname: '/users'}}>Users</Link></li> 
                   </ul>
               </nav>
           </header>
-
-          <Route path="/courses" exact component={Courses} />
+            
+          <Route path="/courses" component={Courses} />
           <Route path="/users" component={Users} />
 
           <ol style={{textAlign: 'left'}}>
