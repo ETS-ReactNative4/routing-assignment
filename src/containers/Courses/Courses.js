@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import './Courses.css';
+import Course from '../Course/Course';
 
 class Courses extends Component {
     state = {
@@ -9,22 +10,36 @@ class Courses extends Component {
             { id: 1, title: 'Angular - The Complete Guide' },
             { id: 2, title: 'Vue - The Complete Guide' },
             { id: 3, title: 'PWA - The Complete Guide' }
-        ]
+        ],
+
+        selectedCourseId: null
+    }
+
+    courseSelectedHandler = (id) => {
+        this.setState({selectedCourseId: id});
     }
 
     render () {
+        let course;
+        if (!this.state.selectedCourseId) {
+           course = <p style={{textAlign: 'center'}}>Please select a Course!</p>;
+        }
         return (
             <div>
+                
                 <h1>Amazing Udemy Courses</h1>
+                
                 <section className="Courses">
                     {
                         this.state.courses.map( course => {
                             return <Link to={'/' + course.id} key={course.id}>
                                     <article className="Course" key={course.id}>{course.title}</article>
+                                        <Course clicked={() => this.courseSelectedHandler(course.id)} />   
                                 </Link>
                         } )
                     }
                 </section>
+                {course}
             </div>
         );
     }
