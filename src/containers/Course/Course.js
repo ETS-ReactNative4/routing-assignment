@@ -6,13 +6,18 @@ class Course extends Component {
         title: '_COURSE_TITLE_',
         id: '_ID_'
     }
+
+    componentDidMount() {
+        console.log(this.props);
+    }
     render () {
         let course = null;
+        const params = new URLSearchParams(this.props.location.search)
         if(this.props.match.params.courseId) {  //we can already obtain the id but the data are still not loaded 
             //as the loading happens async  
             course = (
                 <div>
-                <h1>{this.props.match.params.title}</h1>
+                <h1>{params.get('title')}</h1>
                 <p>You selected the Course with ID: {this.props.match.params.courseId}</p>
             </div>
             );
