@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -13,6 +13,7 @@ class App extends Component {
       width: '100%',
       textAlign: 'center'
     }
+
     return (
       <BrowserRouter>
         <div className="App">
@@ -29,7 +30,9 @@ class App extends Component {
           <Switch> 
             <Route path="/courses" component={Courses} />
             <Route path="/users" component={Users} />
+            <Redirect from='/all-courses' to='/courses'/>
             <Route render={() => <h1>NOT FOUND!</h1>} />
+            <Route  />
           </Switch> 
 
           <ol style={{textAlign: 'left'}}>
