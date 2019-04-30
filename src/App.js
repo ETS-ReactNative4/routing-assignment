@@ -20,10 +20,16 @@ class App extends Component {
           <header>
               <nav>
                   <ul style={ulStyle}>
-                      <li><Link to="/">HOME</Link></li>
-                      <li><Link to="/courses">Courses</Link></li>
-                      <li><Link to={{ //advanced properties as an example
-                       pathname: '/users'}}>Users</Link></li> 
+                      <li style={{margin: '10px', display: 'inline-block'}}>
+                        <Link to="/">HOME</Link>
+                      </li>
+                      <li style={{margin: '10px', display: 'inline-block'}}>
+                        <Link to="/courses">Courses</Link>
+                      </li>
+                      <li style={{margin: '10px', display: 'inline-block'}}>
+                        <Link to={{ //advanced properties as an example
+                       pathname: '/users'}}>Users</Link>
+                      </li> 
                   </ul>
               </nav>
           </header>
