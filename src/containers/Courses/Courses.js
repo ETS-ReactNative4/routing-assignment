@@ -16,7 +16,7 @@ class Courses extends Component {
     }
 
     courseSelectedHandler = (id) => {
-        this.props.history.push({pathname: '/courses/' + id});
+        this.props.history.push({pathname: this.props.match.url + '/' + id});
         this.setState({selectedCourseId: id});
     }
 
@@ -32,7 +32,7 @@ class Courses extends Component {
                 <section className="Courses">
                     {
                         this.state.courses.map( course => {
-                            return <Link to={{pathname:'/courses/' + course.id, 
+                            return <Link to={{pathname:this.props.match.url + '/' + course.id, 
                                     search: '?title=' + course.title}} 
                                     key={course.id}
                                     onClick={() => this.courseSelectedHandler(course.id)}>
